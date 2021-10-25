@@ -18,10 +18,10 @@
 <br />
 
 ## Configurar la aplicación .NET Core con Paketo
-Configure su [aplicación .NET Core con Paketo](https://paketo.io/docs/howto/dotnet-core/) y podrá despleglar su aplicación sin necesitada de contar con un Dockerfile. La aplicación .NET Core configurada con Paketo que se utiliza en esta guía se encuentra pública en este [repositorio](#https://github.com/paketo-buildpacks/samples/tree/main/dotnet-core/aspnet).
+Configure su [aplicación .NET Core con Paketo](https://paketo.io/docs/howto/dotnet-core/) y podrá despleglar su aplicación sin necesitada de contar con un Dockerfile. La aplicación .NET Core configurada con Paketo que se utiliza en esta guía se encuentra pública en este [repositorio](https://github.com/paketo-buildpacks/samples/tree/main/dotnet-core/aspnet).
 
 ## Desplegar la aplicación en Code Engine
-Para desplegar la aplicación en Code Engine mediante el código fuente es necesario tener el código en un repositorio de github o azure, si este repositorio se encuentra privado no olvide [generar la clave SSH y asociarla al repositorio] (https://github.com/emeloibmco/IBM-Cloud-Code-Engine-.Net#opci%C3%B3n-3-repositorio-privado-en-github).
+Para desplegar la aplicación en Code Engine mediante el código fuente es necesario tener el código en un repositorio de github o azure, si este repositorio se encuentra privado no olvide [generar la clave SSH y asociarla al repositorio](https://github.com/emeloibmco/IBM-Cloud-Code-Engine-.Net#opci%C3%B3n-3-repositorio-privado-en-github).
 
 1. Desde el menú de navegación o menú de hamburguesa seleccione la opción ```Code Engine```.
 2. De click sobre el botón de ```Proyectos/Projects``` y seleccione el proyecto en el que desea desplegar la aplicación.
