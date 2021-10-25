@@ -6,11 +6,8 @@
 1. [Pre-Requisitos](#pre-requisitos-pencil)
 2. [Configurar la aplicación ASP.NET Core con Paketo](#Configurar-la-aplicación-ASP.NET-Core-con-Paketo)
 3. [Desplegar la aplicación en Code Engine](#Desplegar-la-aplicación-en-Code-Engine)
-    * [Crear el code repository access](#Crear-el-code-repository-access)
-    * [Compilar imagen de referencia](#Compilar-imagen-de-referencia)
-    * [Despliegue de la aplicación](#Despliegue-de-la-aplicación)
-6. [Referencias](#Referencias-book)
-7. [Autores](#Autores-black_nib)
+4. [Referencias](#Referencias-book)
+5. [Autores](#Autores-black_nib)
 
 ## Pre Requisitos :pencil:
 * Contar con una cuenta en <a href="https://cloud.ibm.com/"> IBM Cloud</a>.
