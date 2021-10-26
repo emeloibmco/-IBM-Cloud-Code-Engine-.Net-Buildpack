@@ -1,12 +1,12 @@
-# IBM Cloud Code Engine .Net Buildpack
+# IBM Cloud Code Engine .Net Buildpack :package: :cloud:
 *Code Engine* da soporte a la compilación desde un *Dockerfile* y *Cloud Native Buildpacks*. Cloud Native Buildpack utiliza *Paketo* para examinar el repositorio de origen y detectar el entorno de tiempo de ejecución en el que se basa el código y cómo se compila una imagen de contenedor desde sus orígenes. En esta guía se muestra el despliegue en *Code Engine* de una aplicación .NET que utiliza *Cloud Native Buildpacks*.
 <br />
 
 ## Índice  📰
 1. [Pre-Requisitos](#pre-requisitos-pencil)
-2. [Configurar la aplicación ASP.NET Core con Paketo](#Configurar-la-aplicación-ASP.NET-Core-con-Paketo)
-3. [Desplegar la aplicación en Code Engine](#Desplegar-la-aplicación-en-Code-Engine)
-4. [Acceder a la aplicación](#Acceder-a-la-aplicación)
+2. [Configurar la aplicación ASP.NET Core con Paketo](#Configurar-la-aplicación-ASP.NET-Core-con-Paketo-wrench)
+3. [Desplegar la aplicación en Code Engine](#Desplegar-la-aplicación-en-Code-Engine-arrow_double_down)
+4. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
 5. [Referencias](#Referencias-book)
 6. [Autores](#Autores-black_nib)
 
@@ -18,10 +18,10 @@
 * Contar con un proyecto y registro de Code Engine.
 <br />
 
-## Configurar la aplicación ASP.NET Core con Paketo
+## Configurar la aplicación ASP.NET Core con Paketo :wrench:
 Configure su [aplicación .NET Core con Paketo](https://paketo.io/docs/howto/dotnet-core/) y podrá despleglar su aplicación sin necesitada de contar con un Dockerfile. La aplicación .NET Core configurada con Paketo que se utiliza en esta guía se encuentra pública en este [repositorio](https://github.com/paketo-buildpacks/samples/tree/main/dotnet-core/aspnet).
 
-## Desplegar la aplicación en Code Engine
+## Desplegar la aplicación en Code Engine :arrow_double_down:
 Para desplegar la aplicación en Code Engine mediante el código fuente es necesario tener el código en un repositorio de github o azure, si este repositorio se encuentra privado no olvide [generar la clave SSH y asociarla al repositorio](https://github.com/emeloibmco/IBM-Cloud-Code-Engine-.Net#opci%C3%B3n-3-repositorio-privado-en-github).
 
 1. Desde el menú de navegación o menú de hamburguesa seleccione la opción ```Code Engine```.
@@ -45,7 +45,7 @@ https://github.com/paketo-buildpacks/samples/tree/main/dotnet-core/aspnet
 <img width="800" alt="img8" src=https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack/blob/main/Imagenes/buildpack.gif>
 </p>
 
-# Acceder a la aplicación
+# Acceder a la aplicación :computer:
 Una vez, desplegada la aplicación, debe estar en estado ```Ready/Activo```, de click en el nombre de la aplicación y encontrará una vista de las instancias desplegadas actualmente, las configuraciones de la aplicación (Puerto de escucha, variables de entorno, recursos de la instancia, etc) y en la pestaña de ```End Points/Puntos finales``` encontrará las URL de acceso a la aplicación. 
 
 La aplicación de ejemplo trae una sencilla vista del logo de Paketo.
