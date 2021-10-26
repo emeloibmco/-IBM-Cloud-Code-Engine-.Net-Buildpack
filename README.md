@@ -6,8 +6,9 @@
 1. [Pre-Requisitos](#pre-requisitos-pencil)
 2. [Configurar la aplicación ASP.NET Core con Paketo](#Configurar-la-aplicación-ASP.NET-Core-con-Paketo)
 3. [Desplegar la aplicación en Code Engine](#Desplegar-la-aplicación-en-Code-Engine)
-4. [Referencias](#Referencias-book)
-5. [Autores](#Autores-black_nib)
+4. [Acceder a la aplicación](#Acceder-a-la-aplicación)
+5. [Referencias](#Referencias-book)
+6. [Autores](#Autores-black_nib)
 
 ## Pre Requisitos :pencil:
 * Contar con una cuenta en <a href="https://cloud.ibm.com/"> IBM Cloud</a>.
@@ -17,7 +18,7 @@
 * Contar con un proyecto y registro de Code Engine.
 <br />
 
-## Configurar la aplicación .NET Core con Paketo
+## Configurar la aplicación ASP.NET Core con Paketo
 Configure su [aplicación .NET Core con Paketo](https://paketo.io/docs/howto/dotnet-core/) y podrá despleglar su aplicación sin necesitada de contar con un Dockerfile. La aplicación .NET Core configurada con Paketo que se utiliza en esta guía se encuentra pública en este [repositorio](https://github.com/paketo-buildpacks/samples/tree/main/dotnet-core/aspnet).
 
 ## Desplegar la aplicación en Code Engine
@@ -42,6 +43,16 @@ https://github.com/paketo-buildpacks/samples/tree/main/dotnet-core/aspnet
 
 <p align="center">
 <img width="800" alt="img8" src=https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack/blob/main/Imagenes/buildpack.gif>
+</p>
+
+# Acceder a la aplicación
+Una vez, desplegada la aplicación, debe estar en estado Ready/Activo, de click en el nombre de la aplicación y encontrara una vista de las instancias desplegadas actualmente, las configuraciones de la aplicación (Puerto de escucha, variables de entorno, recursos de la instancia, etc) y en la pestaña de End Points/Puntos finales encontrará las URL de acceso a la aplicación. 
+
+La aplicación de ejemplo trae una sencilla vista del logo de Paketo.
+
+
+<p align="center">
+<img width="800" alt="img8" src=https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack/blob/main/Imagenes/access.gif>
 </p>
 
 
