@@ -46,7 +46,7 @@ https://github.com/paketo-buildpacks/samples/tree/main/dotnet-core/aspnet
 </p>
 
 # Acceder a la aplicación
-Una vez, desplegada la aplicación, debe estar en estado Ready/Activo, de click en el nombre de la aplicación y encontrara una vista de las instancias desplegadas actualmente, las configuraciones de la aplicación (Puerto de escucha, variables de entorno, recursos de la instancia, etc) y en la pestaña de End Points/Puntos finales encontrará las URL de acceso a la aplicación. 
+Una vez, desplegada la aplicación, debe estar en estado ```Ready/Activo```, de click en el nombre de la aplicación y encontrará una vista de las instancias desplegadas actualmente, las configuraciones de la aplicación (Puerto de escucha, variables de entorno, recursos de la instancia, etc) y en la pestaña de ```End Points/Puntos finales``` encontrará las URL de acceso a la aplicación. 
 
 La aplicación de ejemplo trae una sencilla vista del logo de Paketo.
 
