@@ -12,14 +12,16 @@
 
 ## Pre Requisitos :pencil:
 * Contar con una cuenta en <a href="https://cloud.ibm.com/"> IBM Cloud</a>.
-* Tener instalada la CLI de IBM Cloud.
 * Tener instalada la CLI de Docker.
 * Tener instalado Git.
-* Contar con un proyecto y registro de Code Engine.
+* Tener instalada la CLI de <a href="https://buildpacks.io/docs/tools/pack/">Pack</a>.
+* Contar con un proyecto de Code Engine.
 <br />
 
 ## Configurar la aplicación ASP.NET Core con Paketo :wrench:
 Configure su [aplicación .NET Core con Paketo](https://paketo.io/docs/#build-the-app-image-from-source-code) y podrá despleglar su aplicación sin necesitada de contar con un Dockerfile. Para crear la aplicación .NET Core configurada con Paketo que se utiliza en esta guía siga estos pasos:
+
+Nota: En caso de que no tenga instalado el comando dotnet puede clonar este repositorio en su computador (git clone https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack).
 
 1. Cree la aplicación con el comnado dotnet:
 
@@ -41,9 +43,9 @@ dotnet publish -c Release
 4. Usando el generador de paquete ```base``` se contruye una imagen de la aplicación como un contenedor ejecutable:
 
 ```
-pack build paketo-demo-app --builder paketobuildpacks/builder:base
+pack build <usuario_docker>/paketo-mywebapp --builder paketobuildpacks/builder:base
 ```
-Espere a recibir el siguiente mensaje: Successfully built image paketo-demo-app.
+Espere a recibir el siguiente mensaje: Successfully built image <usuario_docker>/paketo-mywebapp.
 
 <p align="center">
 <img width="800" alt="img8" src=https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack/blob/main/Imagenes/paketo.PNG>
@@ -57,13 +59,20 @@ Y podrá visualizar la imagen en su dominio de Docker.
 
 5. Ejecute la imagen de la aplicación con Docker:
 ```
-docker run -d -p 8080:8080 -e PORT=8080 paketo-demo-app
+docker run -d -p 8080:8080 -e PORT=8080 <usuario_docker>/paketo-mywebapp
 ```
 6. Al ingresar a http://localhost:8080 debe evidenciar lo siguiente y la imagen estará funcionando correctamente. 
 
 <p align="center">
 <img width="800" alt="img8" src=https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack/blob/main/Imagenes/webapp.PNG>
 </p>
+
+7. Envie su aplicación al repositorio remoto (Recuerde tener la sesión activa con ```docker login```):
+
+```
+docker push <usuario_docker>/paketo-mywebapp
+```
+Una vez termine, su imagen estará desplegada en su repositorio remoto de docker.
 
 ## Desplegar la aplicación en Code Engine :arrow_double_down:
 Para desplegar la aplicación en Code Engine mediante el código fuente es necesario tener el código en un repositorio de github o azure, si este repositorio se encuentra privado no olvide [generar la clave SSH y asociarla al repositorio](https://github.com/emeloibmco/IBM-Cloud-Code-Engine-.Net#opci%C3%B3n-3-repositorio-privado-en-github).
@@ -73,15 +82,12 @@ Para desplegar la aplicación en Code Engine mediante el código fuente es neces
 3. De click sobre el botón de ```Aplicaciones/Applications``` y seleccione la opción ```Crear```.
 4. En el panel de configuración, llene la información de la siguiente manera:
    * ```Nombre/Name```: Ingrese un nombre para la aplicación.
-   * ```Elija el código para ejecutar/Choose the code to run```: Seleccione código fuente o source code
-   * ```URL del código fuente/Source code URL```: Ingrese la URL del repositorio, en este caso ingrese
+   * ```Elija el código para ejecutar/Choose the code to run```: Seleccione container image o imagen de contenedor
+   * ```Referencia de la imagen/Image reference```: Ingrese la dirrección de su imagen en el repositorio docker.
 ```
-https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack
+<usuario_docker>/paketo-mywebapp:latest
 ```
-   * Seleccione la opción ```Especifique los detalles de la compilación/Specify build details```. Esto abrirá una nueva pestaña de configuración 
-      * En la pestaña de ```Fuente/Source```elija el code repo access dependiento de si su repostorio es publico o privado, la rama donde sen encuentra su repositorio y de   click en siguiente.
-      * En la pestaña de ```Estrategia/Strategy```seleccione Cloud Native Buildpack y deje los valores predeterminados, luego de click en siguiente.
-      * En la pestaña de ```Salida/output``` seleccione el acceso de registro con el que ya cuenta e ingrese un nombre para el espacio de trabajo, la imagen y la etiqueta, los cuales se generarán automáticamente al desplegar la aplicación, finalmente de click en el botón ```Hecho/Done```.   
+   * Seleccione la opción ``Configurar imagen/Configure image```. Esto abrirá una nueva pestaña de configuración. Verifique que todos los campos sean correctos y de click en ```Hecho/Done```  
    * ```Puerto de escucha```: Ingrese un puerto, en caso de tener un puerto de escucha especifico para su aplicación.
    * De click en el boton de ```Crear```. Esto lo llevara a una nueva pestaña en donde deberá esperar algunos minutos hasta que la aplicación se despliegue.
 
@@ -91,9 +97,6 @@ https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack
 
 # Acceder a la aplicación :computer:
 Una vez, desplegada la aplicación, debe estar en estado ```Ready/Activo```, de click en el nombre de la aplicación y encontrará una vista de las instancias desplegadas actualmente, las configuraciones de la aplicación (Puerto de escucha, variables de entorno, recursos de la instancia, etc) y en la pestaña de ```End Points/Puntos finales``` encontrará las URL de acceso a la aplicación. 
-
-La aplicación de ejemplo trae una sencilla vista del logo de Paketo.
-
 
 <p align="center">
 <img width="800" alt="img8" src=https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack/blob/main/Imagenes/access.gif>
