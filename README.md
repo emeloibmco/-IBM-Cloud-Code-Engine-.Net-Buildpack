@@ -87,7 +87,7 @@ Para desplegar la aplicación en Code Engine mediante el código fuente es neces
 ```
 <usuario_docker>/paketo-mywebapp:latest
 ```
-   * Seleccione la opción ``Configurar imagen/Configure image```. Esto abrirá una nueva pestaña de configuración. Verifique que todos los campos sean correctos y de click en ```Hecho/Done```  
+   * Seleccione la opción ```Configurar imagen/Configure image```. Esto abrirá una nueva pestaña de configuración. Verifique que todos los campos sean correctos y de click en ```Hecho/Done```  
    * ```Puerto de escucha```: Ingrese un puerto, en caso de tener un puerto de escucha especifico para su aplicación.
    * De click en el boton de ```Crear```. Esto lo llevara a una nueva pestaña en donde deberá esperar algunos minutos hasta que la aplicación se despliegue.
 
