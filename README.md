@@ -19,7 +19,51 @@
 <br />
 
 ## Configurar la aplicación ASP.NET Core con Paketo :wrench:
-Configure su [aplicación .NET Core con Paketo](https://paketo.io/docs/howto/dotnet-core/) y podrá despleglar su aplicación sin necesitada de contar con un Dockerfile. La aplicación .NET Core configurada con Paketo que se utiliza en esta guía se encuentra pública en este [repositorio](https://github.com/paketo-buildpacks/samples/tree/main/dotnet-core/aspnet).
+Configure su [aplicación .NET Core con Paketo](https://paketo.io/docs/#build-the-app-image-from-source-code) y podrá despleglar su aplicación sin necesitada de contar con un Dockerfile. Para crear la aplicación .NET Core configurada con Paketo que se utiliza en esta guía siga estos pasos:
+
+1. Cree la aplicación con el comnado dotnet:
+
+```
+dotnet new webApp -o myWebApp --no-https
+```
+2. Ingrese a la aplicación:
+
+ ```
+ cd myWebApp
+ ```
+
+3. Publique la aplicación para obtener una DLL autónoma:
+
+```
+dotnet publish -c Release
+```
+
+4. Usando el generador de paquete ```base``` se contruye una imagen de la aplicación como un contenedor ejecutable:
+
+```
+pack build paketo-demo-app --builder paketobuildpacks/builder:base
+```
+Espere a recibir el siguiente mensaje: Successfully built image paketo-demo-app.
+
+<p align="center">
+<img width="800" alt="img8" src=https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack/blob/main/Imagenes/paketo.PNG>
+</p>
+
+Y podrá visualizar la imagen en su dominio de Docker.
+
+<p align="center">
+<img width="800" alt="img8" src=https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack/blob/main/Imagenes/docker.PNG>
+</p>
+
+5. Ejecute la imagen de la aplicación con Docker:
+```
+docker run -d -p 8080:8080 -e PORT=8080 paketo-demo-app
+```
+6. Al ingresar a http://localhost:8080 debe evidenciar lo siguiente y la imagen estará funcionando correctamente. 
+
+<p align="center">
+<img width="800" alt="img8" src=https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack/blob/main/Imagenes/webapp.PNG>
+</p>
 
 ## Desplegar la aplicación en Code Engine :arrow_double_down:
 Para desplegar la aplicación en Code Engine mediante el código fuente es necesario tener el código en un repositorio de github o azure, si este repositorio se encuentra privado no olvide [generar la clave SSH y asociarla al repositorio](https://github.com/emeloibmco/IBM-Cloud-Code-Engine-.Net#opci%C3%B3n-3-repositorio-privado-en-github).
@@ -32,7 +76,7 @@ Para desplegar la aplicación en Code Engine mediante el código fuente es neces
    * ```Elija el código para ejecutar/Choose the code to run```: Seleccione código fuente o source code
    * ```URL del código fuente/Source code URL```: Ingrese la URL del repositorio, en este caso ingrese
 ```
-https://github.com/paketo-buildpacks/samples/tree/main/dotnet-core/aspnet
+https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack
 ```
    * Seleccione la opción ```Especifique los detalles de la compilación/Specify build details```. Esto abrirá una nueva pestaña de configuración 
       * En la pestaña de ```Fuente/Source```elija el code repo access dependiento de si su repostorio es publico o privado, la rama donde sen encuentra su repositorio y de   click en siguiente.
