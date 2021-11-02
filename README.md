@@ -19,11 +19,11 @@
 <br />
 
 ## Configurar la aplicación ASP.NET Core con Paketo :wrench:
-Configure su [aplicación .NET Core con Paketo](https://paketo.io/docs/#build-the-app-image-from-source-code) y podrá despleglar su aplicación sin necesitada de contar con un Dockerfile. Para crear la aplicación .NET Core configurada con Paketo que se utiliza en esta guía siga estos pasos:
+Configure su [aplicación .NET Core con Paketo](https://paketo.io/docs/#build-the-app-image-from-source-code) y podrá despleglar su aplicación sin necesidad de contar con un Dockerfile. Para crear la aplicación .NET Core configurada con Paketo que se utiliza en esta guía siga estos pasos:
 
 Nota: En caso de que no tenga instalado el comando dotnet puede clonar este repositorio en su computador (git clone https://github.com/emeloibmco/-IBM-Cloud-Code-Engine-.Net-Buildpack) y pasar directamente al paso 4.
 
-1. Cree la aplicación con el comnado dotnet:
+1. Cree la aplicación con el comando dotnet:
 
 ```
 dotnet new webApp -o myWebApp --no-https
